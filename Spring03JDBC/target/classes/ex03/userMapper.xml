@@ -11,6 +11,11 @@
 		insert into spring_user values(spring_user_idx_seq.nextval,
 		 #{name}, #{userid}, #{pwd}, sysdate)
 	</insert>
+	<insert id="createUser" parameterType="User">
+		<selectKey keyProperty="" resultType="" order="BEFORE">
+			select spring_user+idx+seq.nextval from dual
+		</selectKey>
+	</insert>
 </mapper>
 
 

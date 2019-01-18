@@ -8,7 +8,9 @@
 	<!--[1] properties파일이 있는곳 정보 등록  -->
 	<context:property-placeholder location="classpath:props/database.properties"/>
 	
-	<!--[2] DataSource빈 등록  -->
+	<!--[2] DataSource빈 등록  
+		(1)-->
+	
 	<bean id="dataSource" 
 	class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="${driver}"/>
@@ -17,6 +19,16 @@
 		<property name="password" value="${pwd}"/>
 	</bean>
 	
+	 
+	<!--(2) JNDI 사용하는 방법 : Tomcat서버에 등록된 
+	 		DataSource를 찾아 빈으로 등록하는 방법  -->
+	<!-- <bean id="jndiDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:comp/env/oracle/myshop"/>
+	</bean> -->
+	
+	
+	
+	 
 	<!--[3] SQLSessionFactoryBean 등록  -->
 	<bean id="sqlSessionFactory" 
 	class="org.mybatis.spring.SqlSessionFactoryBean">
