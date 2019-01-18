@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!-- xmlns:p="http://www.springframework.org/schema/p" 네임스페이스 추가 beans태그 스키마 설정에 네임스페이스를 등록한 뒤
+bean태그 속성으로 설정
+- p:프로퍼티명="값"
+- p:프로퍼티명-ref="빈id"
+-->
+
+</beans>

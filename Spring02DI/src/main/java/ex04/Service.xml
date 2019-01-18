@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+	<!--[1] List<String> list=new ArrayList<>(); list.add("Java"); list.add("Html"); 
+		list.add("Spring"); Service s1=new ServiceImpl(); s1.setList(list); -->
+
+	<bean id="s1" class="ex04.ServiceImpl">
+		<property name="list">
+			<list>
+				<value>Java</value>
+				<value>Html</value>
+				<value>Spring</value>
+				<value>CSS</value>
+			</list>
+		</property>
+	</bean>
+	<!--[2] Map<String, Integer> map=new HashMap<>(); map.put("age",22); map.put("salary",3000); 
+		Service s2=new ServiceImpl(); s2.setMap(map); -->
+	<bean id="s2" class="ex04.ServiceImpl">
+		<property name="map">
+			<map>
+				<entry>
+					<key>
+						<value>age</value>
+					</key>
+					<value>22</value>
+				</entry>
+				<entry>
+					<key>
+						<value>salary</value>
+					</key>
+					<value>3000</value>
+				</entry>
+				<entry>
+					<key>
+						<value>birth</value>
+					</key>
+					<value>1988</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<!--[3] Set<String> set=new LinkedHashSet<>();
+			set.add("Oracle");
+			set.add("MySQL");
+			set.add("MsSQL");
+			Service s3=new ServiceImpl();
+			s3.setSet(set);  -->
+	<bean id="s3" class="ex04.ServiceImpl">
+		<property name="set">
+			<set>
+				<value>Oracle</value>
+				<value>MySQL</value>
+				<value>MsSQL</value>
+			</set>			
+		</property>
+	</bean>
+	
+	<!--[4] Properties prop=new Properties();
+			prop.setProperty("user","scott");
+			prop.setProperty("pwd","tiger");
+			s4.setProp(prop);		
+			
+			prop은 따로 value태그를 사용하지않아도 된다.
+		  -->
+	<bean id="s4" class="ex04.ServiceImpl">
+		<property name="prop">
+			<props>
+				<prop key="user">scott</prop> 
+				<prop key="pwd">tiger</prop>
+			</props>
+		</property>
+	</bean>
+	
+</beans>

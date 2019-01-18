@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+<!-- xmlns:p="http://www.springframework.org/schema/p" 네임스페이스를
+추가함 setter injection시 사용하는 네임스페이스 -->
+	<!-- p: 프로퍼티명="값" -->
+	<bean id="em1" class="ex03.EmpImpl" p:name="김프로"/>
+	
+	
+	<bean id="rn" class="java.util.Random"/>
+	<bean id="em2" class="ex03.EmpImpl" p:ran-ref="rn"/>
+	
+	<!-- Calendar빈을 생성하고 em3빈에 주입해보세요 -->
+	<bean id="cal" class="java.util.Calendar" factory-method="getInstance"/>
+	<bean id="em3" class="ex03.EmpImpl" p:cal-ref="cal"/>
+	
+	
+</beans>

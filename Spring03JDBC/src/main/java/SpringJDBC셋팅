@@ -1,0 +1,15 @@
+ex03패키지의 수행순서
+[1] database.properties 를 src/main/resources/props에 생성
+[2] appContext.xml 파일 생성
+	=> DataSourceBean 등록
+	=> SqlSessionFactoryBean 등록
+	=> SqlSessionTemplateBean 등록
+	=> UserDAOMyBatisBean 등록
+
+[3] mybatis-config.xml파일 생성
+	=> typeAlias등록
+	=> xxxMapper파일 등록
+
+[4] UserMapper.xml파일 생성
+	=> 쿼리문 등록
+[3] UserDAOMyBatis 작성

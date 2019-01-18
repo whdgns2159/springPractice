@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+<!--[1] consoleOutputter, FileOutputter빈을 생성하고 
+	path를 setter로 주입하세요. FileOutputter path에는 
+	C:/MyJava/spring.txt
+-->
+
+<!--[2] ex05.MessageBeanImpl빈을 생성하세요. msg, money값을 주입하세요
+	out프로퍼티도 주입하세요.
+
+ -->
+	<bean id="cb" class="ex05.ConsoleOutputter">
+		<property name="path" value="*************"/>
+	</bean>
+	<bean id="fb" class="ex05.FileOutputter">
+		<property name="path" value="C:/MYJAVA/spring.txt"/>
+	</bean>
+	
+	
+	<bean id="mb" class="ex05.MessageBeanImpl">
+		<property name="msg">
+			<value>안녕하세요</value>
+		</property>
+		<property name="money">
+			<value>2500</value>
+		</property>
+		<property name="out">
+			<ref bean="fb"/>
+		</property>
+	</bean>
+</beans>

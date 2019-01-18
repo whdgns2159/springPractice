@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+	<!-- MessageBeanImpl빈을 2개 생성하세요 -->
+
+	<!-- Setter Injection : setter를 통해 값을 주입하는 방법 -->
+	<bean id="mb1" class="ex04.MessageBeanImpl">
+		<property name="greeting">
+			<value>반가워요 ㅇㅅㅇ</value>
+		</property>
+		<!-- mb1.setGreeting("반가워요 ㅇㅅㅇ"); 와 동일하다. -->
+		<property name="name" value="진성" />
+		<!-- mb1.setName("진성"); 과 동일하다. -->
+	</bean>
+
+	<!-- greeting과 name값을 setter로 주입하세요 -->
+	<bean id="mb2" class="ex04.MessageBeanImpl">
+	<!-- 방법2: 생성자 인젝션 -->
+		<constructor-arg index="0" type="java.lang.String">
+			<value>새해 복 밚이 받으세요</value>
+		</constructor-arg>
+		<constructor-arg index="1" type="int">
+			<value>10000</value>
+		</constructor-arg>
+	<!-- ==================================== -->
+		<property name="greeting">
+			<value>반갑습니다.</value>
+		</property>
+		<property name="name" value="기훈"></property>
+	</bean>
+	<!-- 생성자인젝션에서 객체를 참조하는법 =============== -->
+	<bean id="date" class="java.util.Date" />
+	<bean id="mb3" class="ex04.MessageBeanImpl">
+		<constructor-arg index="0" type="java.lang.String">
+			<value>안녕하세요</value>
+		</constructor-arg>
+		<constructor-arg index="1" type="java.lang.String">
+			<value>홍상진</value>
+		</constructor-arg>
+		<constructor-arg index="2" type="java.util.Date">
+		 <ref bean="date"/>
+		</constructor-arg>
+	</bean>
+	<!-- ============================================== -->
+</beans>

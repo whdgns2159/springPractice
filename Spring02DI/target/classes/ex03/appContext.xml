@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!-- setter injection
+property 태그로 주입
+	<bean id="a">
+		<property name="name" value="test"/>	
+	</bean> set을 불러와서 값을 넣어주겠다는 의미
+	- 정수,실수,문자열 값 등을 넣을 때 : value 
+		스프링은 문자열로 작성된 value 값을 적당한 타입에 맞게 변환한다.
+    - 참조유형 :  ref
+-->
+	<!--[1] EmpImpl빈을 생성하고 setter로 이름을 주입하세요  -->
+	<bean id="n" class="ex03.EmpImpl">
+		<property name="name">
+			<value>장반석</value>
+		</property>
+	</bean>
+	
+	<!--[2] EmpImpl빈을 생성하고 setter로	Random객체를 주입하세요  -->
+	<bean id="random" class="java.util.Random"/>
+	<bean id="r" class="ex03.EmpImpl">
+		<property name="ran">
+			<ref bean="random"/>
+		</property>
+	</bean>
+	
+	<!-- [3] EmpImpl빈을 생성하고 setter로 Calendar객체를 주입하세요 -->
+	<!-- Calendar는 추상클래스임으로 new가 안된다. 해서
+		Calendar cal=Calender.getInstance(); (인스턴스method)로 접근해야한다.
+		bean에서는 인스턴스메소드를 생성할때 factory-method로 접근한다.
+	 -->
+	<bean id="date" class="java.util.Calendar" factory-method="getInstance"/>
+	<bean id="d" class="ex03.EmpImpl">
+		<property name="cal">
+			<ref bean="date"/>
+		</property>
+	</bean>
+</beans>

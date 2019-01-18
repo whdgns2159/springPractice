@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+
+<!-- 자바로 설정한 객체(빈)를 xml에 가져오기 위해서는
+	 xmlns(namespace)를 추가한다.
+	xmlns:context="http://www.springframework.org/schema/context"
+	
+	xsi:schemaLocation에도 아래 추가
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd"
+-->
+	<context:annotation-config/>
+	<!-- <context:annotation-config/> 는 등록된 빈들의 어노테이션을 
+	활성화 하는데 사용됨 -->
+
+	<bean id="config" class="ex07.Config"/> 
+	<!-- 빈으로 java파일을 inject했으니
+		Config파일 안의 메소드를 참조할 수 있다.-->
+		
+	<!-- ServiceImple빈을 등록하고 id는 svc2로 주세요.
+		그리고 test2 => Emp빈을 svc2에 setter inject로 주입하세요
+	 -->
+	<bean id="svc2" class="ex07.ServiceImpl">
+		<property name="emp">
+			<ref bean="empInfo3"/><!-- id값 config의 빈에서 참조하는 메소드 -->
+		</property>
+	</bean>
+
+</beans>
