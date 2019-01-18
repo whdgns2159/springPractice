@@ -1,4 +1,4 @@
-package ex03;
+package ex003;
 
 import java.util.Scanner;
 
@@ -8,7 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class SpringAppTest {
 
 	public static void main(String[] args) {
-		ApplicationContext ctx=new ClassPathXmlApplicationContext("ex03/appContext.xml");
+		ApplicationContext ctx=new ClassPathXmlApplicationContext("ex003/appContext.xml");
 
 		UserDAO mybatis=ctx.getBean("userDAOMyBatis",UserDAO.class);
 		

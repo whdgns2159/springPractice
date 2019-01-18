@@ -12,9 +12,14 @@
 		 #{name}, #{userid}, #{pwd}, sysdate)
 	</insert>
 	<insert id="createUser" parameterType="User">
+	<!-- keyProperty 는 시퀀스값을 받아줄 VO객체의 프로퍼티명을 기술
+		 resultType은 시퀀스 값을 어떤 자료유형으로 받을것인지 기술
+		 order는 시퀀스를 쿼리문 수행 이전에 증가시킬것인지 이후에 증가시킬것인지를 지정한다.
+	-->
 		<selectKey keyProperty="" resultType="" order="BEFORE">
 			select spring_user+idx+seq.nextval from dual
 		</selectKey>
+		insert into spring_user values(#{idx},#{name},#{userid},#{pwd},sysdate)
 	</insert>
 </mapper>
 
